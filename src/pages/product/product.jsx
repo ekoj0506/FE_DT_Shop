@@ -11,6 +11,7 @@ export const Product = () => {
   const { filteredData } = useFilters();
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const { productState } = useProducts();
+  console.log(productState,'productState')
   const navigate = useNavigate();
 
   return (

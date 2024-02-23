@@ -34,26 +34,30 @@ export const AuthProvider = ({ children }) => {
 
   const userLogin = async (loginData) => {
     try {
+      console.log('login',loginData)
       authDispatch({ type: "set_loading", payload: true });
+
       const { data, status } = await axios({
         method: "POST",
         data: loginData,
-        url: "/api/auth/login",
+        url: "https://bedutu.onrender.com/v1/user/signin",
       });
+      console.log(data)
       if (status === 200) {
-        authDispatch({ type: "set_user", payload: data?.foundUser });
-        setToken(data?.encodedToken);
+        authDispatch({ type: "set_user", payload: data });
+        setToken(data?.token);
         authDispatch({ type: "set_loading", payload: false });
         navigate(location?.state?.from?.pathname || "/products");
         localStorage.setItem(
           "data",
-          JSON.stringify({ user: data?.foundUser, token: data?.encodedToken })
+          JSON.stringify({ user: data, token: data?.token })
         );
         toast.success("Logged In!")
       }
     } catch (e) {
       console.log(e);
-      alert(e.response.data.errors);
+      alert("email or password is wrong");
+      authDispatch({ type: "set_loading", payload: false });
     }
   };
 
@@ -63,16 +67,16 @@ export const AuthProvider = ({ children }) => {
       const { data, status } = await axios({
         method: "POST",
         data: signupData,
-        url: "/api/auth/signup",
+        url: "https://bedutu.onrender.com/v1/user/",
       });
       if (status === 201) {
-        authDispatch({ type: "set_user", payload: data?.createdUser });
-        setToken(data?.encodedToken);
+        authDispatch({ type: "set_user", payload: data });
+        setToken(data?.token);
         authDispatch({ type: "set_loading", payload: false });
         navigate(location?.state?.from?.pathname || "/products");
         localStorage.setItem(
           "data",
-          JSON.stringify({ user: data?.createdUser, token: data?.encodedToken })
+          JSON.stringify({ user: data, token: data?.token })
         );
         toast.success("Logged In!")
       }

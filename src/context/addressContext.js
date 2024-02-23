@@ -15,8 +15,8 @@ export const AddressProvider = ({ children }) => {
     name: "",
     street: "",
     city: "",
-    state: "",
-    pincode: "",
+    subdi : "",
+    town: "",
   };
 
   const [checkout, setCheckout] = useState(checkoutInitial);
@@ -25,11 +25,11 @@ export const AddressProvider = ({ children }) => {
     try {
       const { status, data } = await axios({
         method: "GET",
-        url: "/api/user/address",
+        url: "https://bedutu.onrender.com/v1/address",
         headers: { authorization: token },
       });
       if (status === 200) {
-        setAddressData(data?.address);
+        setAddressData(data);
       }
     } catch (e) {
       console.log(e);
@@ -40,12 +40,12 @@ export const AddressProvider = ({ children }) => {
     try {
       const { data, status } = await axios({
         method: "POST",
-        url: "/api/user/address",
+        url: "https://bedutu.onrender.com/v1/address",
         data: { address: addressData },
         headers: { authorization: token },
       });
-      if (status === 201) {
-        setAddressData(data?.address);
+      if (status === 200) {
+        setAddressData(data);
       }
     } catch (e) {
       console.log(e);

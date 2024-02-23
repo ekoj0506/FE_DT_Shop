@@ -23,7 +23,7 @@ export const ProductCard = ({ data }) => {
   const { cart, addCartData, isCartUpdate } = useCart();
   const { wishlist, addWishlistData, removeWishlistData, isWishlistUpdate } = useWishlist();
   const { token } = useAuth();
-
+  console.log('token',token)
   const addToWishlist = () => {
     if (token) {
       if (!isItemInWishlist(wishlist, _id)) {
@@ -58,17 +58,17 @@ export const ProductCard = ({ data }) => {
           ></i>
         )}
         <div onClick={() => navigate(`/products/${_id}`)}>
-          <img src={image} alt={title} />
+          <img src={image[0]} alt={title} />
           <h3>{brand}</h3>
           <p className="product-title">
             {title.length > 50 ? title.substring(0, 50) + "..." : title}
           </p>
           <div className="price-rating">
             <div className="price">
-              <h3>₹{price}</h3>
-              <p>₹{originalPrice}</p>
+              <h3>đ{price.toLocaleString()}</h3>
+              <p>{originalPrice}</p>
             </div>
-            <p>{ratings?.value} ⭐</p>
+            <p>{ratings?.value.toFixed(1)} ⭐</p>
           </div>
         </div>
 
@@ -77,8 +77,10 @@ export const ProductCard = ({ data }) => {
           onClick={() => {
             if (token) {
               if (isItemInCart(cart, _id)) {
+              
                 navigate("/cart");
               } else {
+                console.log('dddd2', data)
                 addCartData(data);
                 toast.success("Added to cart!");
               }

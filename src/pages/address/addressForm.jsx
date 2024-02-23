@@ -13,8 +13,9 @@ export const AddressForm = () => {
     <>
       <div className="address-form">
         <h2>Select Address</h2>
-        {addressData.length === 0 && <h2>No addresses added.</h2>}
-        {addressData.map((data) => {
+        {addressData?.length === 0 && <h2>No addresses added.</h2>}
+        {
+        addressData.map((data) => {
           const { _id, name, street, city, state, pincode } = data;
           return (
             <div key={_id} className="address-list">

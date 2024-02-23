@@ -15,7 +15,7 @@ export const CartCard = ({ data, handleRemoveCart }) => {
   return (
     <>
       <div className="cart-card">
-        <img src={image} alt={title} onClick={() => navigate(`/products/${_id}`)} />
+        <img src={image[0]} alt={title} onClick={() => navigate(`/products/${_id}`)} />
         <div className="title">
           <h3>{brand}</h3>
           <p>{title}</p>
@@ -24,7 +24,7 @@ export const CartCard = ({ data, handleRemoveCart }) => {
         <div className="cart-quantity">
           <div className="quantity-select">
             <button
-              disabled={qty <= 1 || isCartUpdate}
+              disabled={isCartUpdate}
               onClick={() => changeCartQuantity(_id, "decrement")}
             >
               <i class="fa-solid fa-minus fa-xs"></i>

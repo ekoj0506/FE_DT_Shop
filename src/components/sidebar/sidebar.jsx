@@ -58,25 +58,25 @@ export const SideBar = ({ isFilterVisible }) => {
           <label>
             <input
               type="checkbox"
-              checked={filterState?.brands.includes("Sassafras")}
+              checked={filterState?.brands.includes("Savani")}
               onChange={() =>
                 filterDispatch({
                   type: "filter_by_brands",
-                  payload: "Sassafras",
+                  payload: "Savani",
                 })
               }
             />{" "}
-            Sassafras
+            Savani
           </label>
           <label>
             <input
               type="checkbox"
-              checked={filterState?.brands.includes("Levis")}
+              checked={filterState?.brands.includes("Yody")}
               onChange={() =>
-                filterDispatch({ type: "filter_by_brands", payload: "Levis" })
+                filterDispatch({ type: "filter_by_brands", payload: "Yody" })
               }
             />{" "}
-            Levis
+            Yody
           </label>
           <label>
             <input
@@ -146,6 +146,16 @@ export const SideBar = ({ isFilterVisible }) => {
               }
             />{" "}
             Indya
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={filterState?.brands.includes("Savani")}
+              onChange={() =>
+                filterDispatch({ type: "filter_by_brands", payload: "Savani" })
+              }
+            />{" "}
+            Savani
           </label>
         </div>
 

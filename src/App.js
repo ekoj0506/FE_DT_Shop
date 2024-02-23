@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Profile } from "./pages/profile/profile";
 import { AddressDetails } from "./pages/profile/addressDetails";
 import { PageNotFound } from "./pages/404/pageNotFound";
+import Order from "./pages/cart/order";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
         <Route element={<RequireAuth />}>
           <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path='/address' element={<Address />} />
           <Route path='/order-summary' element={<OrderSummary />} />

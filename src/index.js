@@ -12,9 +12,10 @@ import { Wishlistprovider } from "./context/wishlistContext";
 import { AddressProvider } from "./context/addressContext";
 import { makeServer } from "./server";
 import ScrollToTop from "./components/scrollToTop";
+import Chat from "./pages/chat/chat";
 
 // Call make Server
-makeServer();
+//makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,6 +28,7 @@ ReactDOM.render(
               <FilterProvider>
                 <AddressProvider>
                   <App />
+                   <Chat/>
                 </AddressProvider>
               </FilterProvider>
             </CartProvider>

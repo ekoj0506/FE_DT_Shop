@@ -30,6 +30,7 @@ export const AddressCard = () => {
         checkout.state.trim() ||
         checkout.pincode.trim()
       ) {
+       console.log(checkout,'dssssssssss')
         addAddressData({...checkout, _id: uuid()});
         setCheckout({
           ...checkout,
@@ -37,8 +38,8 @@ export const AddressCard = () => {
           name: "",
           street: "",
           city: "",
-          state: "",
-          pincode: "",
+          subdi : "",
+          town: "",
         });
       } else {
         toast.warning("Fill all the data!");
@@ -62,43 +63,44 @@ export const AddressCard = () => {
         <label for="name">Name: </label>
         <input
           id="name"
-          placeholder="Adarsh Balika"
+          placeholder="Dinh Nhu Duc"
           value={checkout.name}
           onChange={(e) => setCheckout({ ...checkout, name: e.target.value })}
           required
         />
-        <label for="street">Street: </label>
-        <input
-          id="street"
-          placeholder="114, New Colony"
-          value={checkout.street}
-          onChange={(e) => setCheckout({ ...checkout, street: e.target.value })}
-          required
-        />
-        <label for="city">City: </label>
+      
+        <label for="city">City, Province: </label>
         <input
           id="city"
-          placeholder="Baripada"
+          placeholder="Da Nang"
           value={checkout.city}
           onChange={(e) => setCheckout({ ...checkout, city: e.target.value })}
           required
         />
-        <label for="city">State: </label>
+        <label for="city">Town, District </label>
         <input
-          id="city"
-          placeholder="Odisha"
+          id="town"  
+          placeholder="Ngu Hanh Son"
           value={checkout.state}
           onChange={(e) => setCheckout({ ...checkout, state: e.target.value })}
           required
         />
-        <label for="pincode">Pincode: </label>
+        <label for="subdi"> Sub-district </label>
         <input
-          id="pincode"
-          placeholder="757001"
+          id="subdi"
+          placeholder="Hoa Hai"
           value={checkout.pincode}
           onChange={(e) =>
             setCheckout({ ...checkout, pincode: e.target.value })
           }
+          required
+        />
+          <label for="street">Street: </label>
+        <input
+          id="street"
+          placeholder="247, Tran Dai Nghia"
+          value={checkout.street}
+          onChange={(e) => setCheckout({ ...checkout, street: e.target.value })}
           required
         />
         <button onClick={handleAddAddress}>

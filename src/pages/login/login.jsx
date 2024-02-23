@@ -11,18 +11,18 @@ export const Login = () => {
   const location = useLocation()
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [userData, setUserData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   const testUserData = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "nhuduc0506",
+    password: "nhuduc0210",
   };
 
   const handlePasswordClick = () => setIsPasswordVisible((prev) => !prev);
 
   const handleLogin = () => {
-    if (!userData.email.trim() || !userData.password.trim()) {
+    if (!userData.username.trim() || !userData.password.trim()) {
       toast.warning("Enter all credentials!")
     } else {
       userLogin(userData);
@@ -45,9 +45,9 @@ export const Login = () => {
             type='login'
             id="email"
             placeholder="johndoe@example.com"
-            value={userData.email}
+            value={userData.username}
             onChange={(e) =>
-              setUserData((prev) => ({ ...prev, email: e.target.value }))
+              setUserData((prev) => ({ ...prev, username: e.target.value }))
             }
           />
         </div>

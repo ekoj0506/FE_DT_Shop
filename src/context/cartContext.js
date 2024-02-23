@@ -21,14 +21,16 @@ export const CartProvider = ({ children }) => {
 
   const getCartData = async () => {
     try {
+      console.log('tototo',token)
       setIsCardUpdate(true);
       const { data, status } = await axios({
         method: "GET",
-        url: "/api/user/cart",
-        headers: { authorization: token },
+        url: "https://bedutu.onrender.com//v1/cart",
+        headers: { authorization:'Bearer '+token },
       });
+      console.log('data///////',data)
       if (status === 200) {
-        setCart(data?.cart);
+        setCart(data?.cart||[]);
         setIsCardUpdate(false);
       }
     } catch (e) {
@@ -38,11 +40,13 @@ export const CartProvider = ({ children }) => {
 
   const addCartData = async (cartData) => {
     try {
+      console.log('cartdata',cartData)
       setIsCardUpdate(true);
+      console.log('cartdata',cartData)
       const { data, status } = await axios({
         method: "POST",
-        url: "/api/user/cart",
-        data: { product: cartData },
+        url: "https://bedutu.onrender.com/v1/cart",
+        data:   cartData ,
         headers: { authorization: token },
       });
       if (status === 201) {
@@ -59,10 +63,10 @@ export const CartProvider = ({ children }) => {
     try {
       const { data, status } = await axios({
         method: "DELETE",
-        url: `/api/user/cart/${dataId}`,
+        url: `https://bedutu.onrender.com/v1/cart/${dataId}`,
         headers: { authorization: token },
       });
-      if (status === 200) {
+      if (status === 201) {
         setCart(data?.cart);
         setIsCardUpdate(false);
       }
@@ -77,10 +81,10 @@ export const CartProvider = ({ children }) => {
       const { data, status } = await axios({
         method: "POST",
         data: { action: { type: updateType } },
-        url: `/api/user/cart/${dataId}`,
+        url: `https://bedutu.onrender.com/v1/cart/${dataId}`,
         headers: { authorization: token },
       });
-      if (status === 200) {
+      if (status === 201) {
         setCart(data?.cart);
         setIsCardUpdate(false);
       }
@@ -93,6 +97,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) {
+      console.log('sss',token)
       getCartData();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

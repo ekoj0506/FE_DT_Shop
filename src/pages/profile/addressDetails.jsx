@@ -45,7 +45,7 @@ export const AddressDetails = () => {
           >
             + ADD NEW ADDRESS
           </button>
-          {addressData.length === 0 && <h2>No addresses added.</h2>}
+          {addressData?.length === 0 && <h2>No addresses added.</h2>}
           {addressData.map((data) => {
             const { _id, name, street, city, state, pincode } = data;
             return (
