@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8a6ccddda35a26bdf39c83cce903c94b3c857cc6
 
 ## Features
 * Landing Page
@@ -31,6 +36,10 @@
 * Razorpay Payment Gateway
 
 ## How to Install and Run Locally
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a6ccddda35a26bdf39c83cce903c94b3c857cc6
 cd ecommerce-attire
 npm install
 npm start
