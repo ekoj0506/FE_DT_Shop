@@ -28,7 +28,7 @@ ReactDOM.render(
               <FilterProvider>
                 <AddressProvider>
                   <App />
-                   <Chat/>
+        
                 </AddressProvider>
               </FilterProvider>
             </CartProvider>
