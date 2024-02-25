@@ -3,7 +3,7 @@ import { useAddress } from "../../context/addressContext";
 import { useCart } from "../../context/cartContext";
 import "./address.css";
 import { toast } from "react-toastify";
-import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+// import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import axios from "axios";
@@ -316,14 +316,14 @@ export const CheckoutCard = () => {
     onError={onError}
   />
   </PayPalScriptProvider> */}
-  <PayPalScriptProvider options={{ clientId: "AX2IKbNMeLF5Z-3uJ9NTvRbtPqTW2F_uE72CqDxJZe71kMl837jfj5ZCpxdsLSvzkqgGPRYT9gAlgaly"}}>
+  {/* <PayPalScriptProvider options={{ clientId: "AX2IKbNMeLF5Z-3uJ9NTvRbtPqTW2F_uE72CqDxJZe71kMl837jfj5ZCpxdsLSvzkqgGPRYT9gAlgaly"}}>
   <PayPalButtons
     style={{ layout: "horizontal", shape: 'pill', label:'pay'}}
     createOrder={createOrderdd}
     onApprove={onApprove}
     onError={onError}
   />
-  </PayPalScriptProvider>
+  </PayPalScriptProvider> */}
       </div>
    
     </>
