@@ -26,8 +26,11 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-
-  },
+  "extends": "react-app",
+  "rules": {
+    "react-hooks/exhaustive-deps": "off"
+  }
+},
   "browserslist": {
     "production": [
       ">0.2%",
