@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { productReducer } from "../reducer/productReducer";
 import axios from "axios";
-import { responseProductApi } from "../Apis/indexApi";
 const ProductContext = createContext();
 
 export const ProductProdvider = ({ children }) => {

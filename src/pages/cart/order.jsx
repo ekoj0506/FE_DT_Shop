@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 import "./cart.css";
 import { CartCard } from "./cartCard";
-import EmptyCart from "./emptyCart";
 import PriceCard from "./priceCard";
 import { useCart } from "../../context/cartContext";
 

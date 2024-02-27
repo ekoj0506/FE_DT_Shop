@@ -25,21 +25,21 @@ export const Footer = () => {
           <div className="socials">
             <h3>CONTACTS: </h3>
             <a
-              href=""
+              href="fsdfd"
               target="_blank"
               rel="noreferrer"
             >
               <i class="fa-brands fa-github fa-lg"></i> Github
             </a>
             <a
-              href=""
+              href="dsfds"
               target="_blank"
               rel="noreferrer"
             >
               <i class="fa-brands fa-twitter fa-lg"></i> Twitter
             </a>
             <a
-              href=""
+              href="fsdfdsf"
               target="_blank"
               rel="noreferrer"
             >

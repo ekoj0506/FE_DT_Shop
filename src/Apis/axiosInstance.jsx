@@ -15,9 +15,7 @@ instance.interceptors.request.use(
   },
   function (error) {
     // Xử lý lỗi khi request không thành công
-    {
-      console.log('chasn')
-    }
+
     return Promise.reject(error);
   }
 );
