@@ -4,9 +4,7 @@ import { useCart } from "../../context/cartContext";
 import "./address.css";
 import { toast } from "react-toastify";
 // import { PayPalScriptProvider, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import { useState } from "react";
-import { useAuth } from "../../context/authContext";
-import axios from "axios";
+
 
 const loadScript = (url) => {
   return new Promise((resolve, reject) => {
@@ -26,12 +24,10 @@ const loadScript = (url) => {
 };
 
 export const CheckoutCard = () => {
-  const { cart, removeCartData, priceDetails, setCart } = useCart();
-  const {token} =useAuth();
+  const { cart, removeCartData, priceDetails } = useCart();
   const { checkout } = useAddress();
   const navigate = useNavigate();
   console.log(cart,'carttttttttttt', checkout)
-  const [amount, setAmount] = useState(10.0); 
   const displayRazorpay = async () => {
   
     
@@ -153,7 +149,6 @@ export const CheckoutCard = () => {
   //   });
   // };
   // console.log('ssssssssssssss',priceDetails.totalPrice/24000)
-  const amountFromOutside = (priceDetails.totalPrice/24000).toFixed(2)||1000;
   // const createOrderdd = (amount, actions) => {
   //   return actions.order.create({
   //     intent: 'CAPTURE',
